@@ -1,5 +1,13 @@
 let random_int = Math.floor(Math.random() * 3);
 
+let player_selection;
+
+const rock = document.querySelector("#rock");
+rock.addEventListener('click', player_selection = 'rock');
+console.log(player_selection);
+
+
+
 
 
 function computerPlay(){
@@ -33,20 +41,20 @@ function game(){
     let player_total = 0;
     let cpu_total = 0;
 
-    for (let i = 0; i < 5; i++){
-        let player_selection = prompt("Pick rock/paper/scissors").toLowerCase();
-        let computer_selection = computerPlay();
-        let round = playRound(player_selection, computer_selection);
-        console.log(round)
+   
+    
+    let computer_selection = computerPlay();
+    let round = playRound(player_selection, computer_selection);
+    console.log(round)
 
-        if (round == "You Win"){
-            player_total ++;
-            console.log(`Player total is now ${player_total}`)
-        } else if (round == "You Lose"){
-            cpu_total ++;
-            console.log(`cpu total is now ${cpu_total}`)
-        }
+    if (round == "You Win"){
+        player_total ++;
+        console.log(`Player total is now ${player_total}`)
+    } else if (round == "You Lose"){
+        cpu_total ++;
+        console.log(`cpu total is now ${cpu_total}`)
     }
+    
     if (cpu_total > player_total){
         return "cpu wins the game!";
     } else if (player_total > cpu_total){
@@ -55,14 +63,10 @@ function game(){
         return "the game was a tie!";
     }
 
-    
+
 }
 
 
-function test(){
-    for(let i = 0; i < 5; i++){
-        console.log(3)
-    }
-}
+
 
 console.log(game())
